@@ -80,7 +80,7 @@ partitioning(){
     sleep 1
 
     mkfs.vfat -F32 /dev/${disk_name}1 # make the FS for the boot partition, FAT32 for EFI
-    e2label /dev/${disk_name}1 BOOT # Create boot label
+    fatlabel /dev/${disk_name}1 BOOT # Create boot label
    
     echo "" # New line
     echo "[ALIS] Encrypting the partition."
