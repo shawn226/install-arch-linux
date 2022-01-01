@@ -27,7 +27,7 @@ set_hostname(){
     echo $hostname > /etc/hostname
 
     echo "
-    127.0.0.1	localhost
+127.0.0.1	localhost
 ::1		localhost
 127.0.1.1	$hostname.localdomain	$hostname" >> /etc/hosts
 
@@ -113,6 +113,8 @@ set_locale
 # Set the hardware clock mode
 hwclock --systohc --utc
 
+set_hostname
+
 create_user
 
 # Uncomment to create a sudo group
@@ -121,4 +123,5 @@ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 config_mkinit
 
 config_bootloader
+
 
